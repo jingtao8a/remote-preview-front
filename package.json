@@ -9,7 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "less": "^4.2.0",
     "normalize.css": "^8.0.1",
+    "sass": "^1.78.0",
+    "sass-loader": "^16.0.1",
+    "tdesign-mobile-vue": "^1.4.2",
     "vue": "^3.4.37",
     "vue-router": "^4.4.5"
   },

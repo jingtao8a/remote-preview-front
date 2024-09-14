@@ -1,9 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import Router from './router/index.js'
+// 引入组件库的少量全局样式变量
+import 'tdesign-mobile-vue/es/style/index.css'
+import TDesign from 'tdesign-mobile-vue'
 
 const app = createApp(App)
 
 app.use(Router)
+app.use(TDesign)
 
 app.mount('#app')

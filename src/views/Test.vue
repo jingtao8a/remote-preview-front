@@ -1,14 +1,9 @@
 <template>
-  <t-button block size="large" variant="outline" theme="primary" @click="visible = true">基础图片预览</t-button>
-  <t-image-viewer v-model:images="images" v-model:visible="visible" />
+  <div class="t-demo-iconfont">
+    <Icon :fileType="0"></Icon>
+  </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue';
-
-const visible = ref(false);
-const images = [
-  'https://tdesign.gtimg.com/mobile/demos/swiper1.png',
-  'https://tdesign.gtimg.com/mobile/demos/swiper2.png',
-];
+<script setup lang="ts">
+import Icon from '../components/Icon.vue';
 </script>

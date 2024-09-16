@@ -43,6 +43,7 @@
         @current-change="handleCurrentChange"
         />
         </div>
+        <Preview ref="previewRef"></Preview>
 </template>
 
 <script setup>
@@ -52,7 +53,7 @@ import Reqeust from '../utils/Request'
 import API from '../js/API';
 import Icon from '../components/Icon.vue'
 import Navigation from '../components/Navigation.vue'
-
+import Preview from '../components/preview/Preview.vue';
 const data = ref({
     pageNo: 1,
     pageSize: 10,
@@ -106,11 +107,23 @@ const download = async (row) => {
     }
     window.location.href = API.download + "/" + result.data
 }
+const previewRef = ref()
 
+//预览
 const preview = async (row)=> {
-    if (row.folderType == 1) {
+    if (row.folderType == 1) {//图片
         navigationRef.value.openFolder(row)
+        return
     }
+    if (row.fileType == 3) {//视频
+        let result = await Reqeust({
+            url: API.getVideo + row.fileId
+        })
+        if (!result) {//视频暂时无法预览
+            return
+        }
+    }
+    previewRef.value.showPreview(row)
 }
 
 const onNavChange = (newCurrentFolder) => {

@@ -1,6 +1,9 @@
 export default {
     size2Str: (limit) => {
         var size = "";
+        if (limit == null) {
+            return size;
+        }
         if (limit < 0.1 * 1024) {                            //小于0.1KB，则转化成B
             size = limit.toFixed(2) + "B"
         } else if (limit < 0.1 * 1024 * 1024) {            //小于0.1MB，则转化成KB

@@ -54,6 +54,8 @@ import API from '../js/API';
 import Icon from '../components/Icon.vue'
 import Navigation from '../components/Navigation.vue'
 import Preview from '../components/preview/Preview.vue';
+import Message from '../utils/Message';
+
 const data = ref({
     pageNo: 1,
     pageSize: 10,
@@ -111,16 +113,38 @@ const previewRef = ref()
 
 //预览
 const preview = async (row)=> {
-    if (row.folderType == 1) {//图片
+    if (row.folderType == 1) {//目录
         navigationRef.value.openFolder(row)
         return
     }
-    if (row.fileType == 3) {//视频
+    if (row.fileType == 1) {//视频
         let result = await Reqeust({
-            url: API.getVideo + row.fileId
+            url: API.getVideo + row.fileId,
+            responseType: "arraybuffer",//json 和 arraybuffer两种返回类型需要考虑
         })
-        if (!result) {//视频暂时无法预览
+        console.log("result", result)
+        let transferSuccess = true
+        let responseVO = null
+        let str = null
+        try {
+            let decoder = new TextDecoder('utf-8')
+            str = decoder.decode(new Uint8Array(result));
+            console.log("str", str)
+        }catch (error) {
+            Message.error("DECODE ERROR")
             return
+        }
+
+        try {
+            responseVO = JSON.parse(str)
+            console.log("responseVO", responseVO)
+        } catch (error) {
+            transferSuccess = false
+        } finally {
+            if (transferSuccess) {
+                Message.error(responseVO.info)
+                return
+            }
         }
     }
     previewRef.value.showPreview(row)

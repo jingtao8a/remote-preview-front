@@ -6,6 +6,7 @@
             :data="data != null && typeof data.list != undefined ? data.list : null"
             :columns="columns"
             :show-header="false"
+            :max-height="650"
             cell-empty-content="-"
             @row-click="handleRowClick"
             @cell-click="handleCellClick"
@@ -32,8 +33,16 @@
                 </div>
             </template>
         </t-table>
-        
-    </div>
+        <el-pagination
+        v-model:current-page="data.pageNo"
+        v-model:page-size="data.pageSize"
+        :total="data.totalCount"
+        :page-sizes="[10, 20, 30, 50]"
+        layout="sizes, prev, pager, next, jumper"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        />
+        </div>
 </template>
 
 <script setup>
@@ -44,7 +53,10 @@ import API from '../js/API';
 import Icon from '../components/Icon.vue'
 import Navigation from '../components/Navigation.vue'
 
-const data = ref()
+const data = ref({
+    pageNo: 1,
+    pageSize: 10,
+})
 
 const columns = [
     {
@@ -115,6 +127,16 @@ const handleCellClick = (e) => {
 
 const handleScroll = (e) => {
   console.log('scroll=====', e);
+}
+
+const handleSizeChange = (pageSize) => {
+    data.value.pageSize = pageSize;
+    loadDataList()
+}
+
+const handleCurrentChange = (pageNo) => {
+    data.value.pageNo = pageNo
+    loadDataList()
 }
 
 </script>

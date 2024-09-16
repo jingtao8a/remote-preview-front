@@ -38,7 +38,7 @@
         v-model:page-size="data.pageSize"
         :total="data.totalCount"
         :page-sizes="[10, 20, 30, 50]"
-        layout="sizes, prev, pager, next, jumper"
+        layout="sizes, prev, pager, next"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         />

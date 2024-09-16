@@ -1,9 +1,9 @@
 export default {
-    loadDataList: "/file/loadDataList",
-    getFolderInfo: "/file/getFolderInfo",
-    getCover: "/file/getCover",
-    getFile: "/file/getFile",
-    getVideo: "/file/getVideo",
-    createDownloadUrl: "file/createDownloadUrl",
-    download: "/file/download",
+    loadDataList: "/api/file/loadDataList",
+    getFolderInfo: "/api/file/getFolderInfo",
+    getCover: "/api/file/getCover/",
+    getFile: "/api/file/getFile/",
+    getVideo: "/api/file/getVideo/",
+    createDownloadUrl: "/api/file/createDownloadUrl/",
+    download: "/api/file/download/",
 }

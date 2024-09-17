@@ -60,6 +60,7 @@
   
   <style lang="scss" scoped>
   .icon {
+    padding-top: 0;
     text-align: center;
     display: inline-block;
     border-radius: 3vw;

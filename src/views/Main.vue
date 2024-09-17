@@ -1,7 +1,7 @@
 <template>
     <div>
-        <t-dropdown-menu @menu-opened="handleMenuOpened" @menu-closed="handleMenuClosed">
-            <t-dropdown-item :options="modelOption.options" :value="modelOption.value" @change="onChange" />
+        <t-dropdown-menu>
+            <t-dropdown-item :options="modelOption.options" :value="modelValue" @change="onChange" />
         </t-dropdown-menu>
         <RouterView v-slot="{Component}">
             <component
@@ -12,12 +12,14 @@
 </template>
 
 <script setup>
-import { useRoute, useRouter } from 'vue-router';
+import {onMounted, ref, watch} from 'vue'
+import {useRoute, useRouter } from 'vue-router';
 const route = useRoute()
 const router = useRouter()
 
+const modelValue = ref()
+
 const modelOption = {
-  value: 'detail',
   options: [
     {
       value: 'detail',
@@ -30,18 +32,19 @@ const modelOption = {
   ],
 }
 
+onMounted(()=>{//确保route的path和mdoelValue能相对应
+    modelValue.value = route.path.substring(1)
+})
+
 const onChange = (e) => {
-  console.log(e);
-  router.replace("/" + e)
+  let suffix = ''
+  let start = route.fullPath.indexOf('?')
+  if (start != -1) {
+    suffix = route.fullPath.substring(start)
+  }
+  router.replace("/" + e + suffix)
 }
 
-const handleMenuOpened = () => {
-  console.log('==handleMenuOpened===');
-};
-
-const handleMenuClosed = (val) => {
-  console.log('==handleMenuClosed===', val);
-};
 </script>
 
 <style scoped>

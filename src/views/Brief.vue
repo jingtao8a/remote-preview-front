@@ -47,6 +47,7 @@ ul {
         height: 10vh;
         text-align: center;
         word-wrap: break-word;
+        font-weight: bold;
     }
 }
 }

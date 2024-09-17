@@ -99,6 +99,7 @@ const handleScroll = (e) => {
         width: 38vw;
         font-size: 12px;
         word-wrap: break-word;
+        font-weight: bold;
     }
 }
 

@@ -78,7 +78,7 @@ const currentFolder = ref({fileId: 0})
 const fileNameFuzzy = ref()
 const navigationRef = ref()
 const loadDataList = async () => {
-    console.log("fileNameFuzzy", fileNameFuzzy)
+    // console.log("fileNameFuzzy", fileNameFuzzy)
     let params = {}
     if (data.value != null && typeof data.value.pageNo != undefined) {
         params.pageNo = data.value.pageNo

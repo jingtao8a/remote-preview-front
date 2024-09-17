@@ -1,9 +1,9 @@
 <template>
         <ul>
             <li v-for="item in data.list" :key="item.fileId" @click.stop="preview(item)">
-                <Icon class="cover" v-if="item.fileType == 1 || item.fileType == 3" :width="35" :cover="item.fileId + '.jpg'"></Icon>
+                <Icon class="cover" v-if="item.folderType == 0 && (item.fileType == 1 || item.fileType == 3)" :width="35" :cover="item.fileId + '.jpg'"></Icon>
                 <Icon class="cover" v-else-if="item.folderType == 1" :fileType="0" :width="35"></Icon>
-                <Icon class="cover" v-else :fileType="row.fileType"></Icon>
+                <Icon class="cover" v-else :fileType="item.fileType"></Icon>
                 <span>
                     {{item.fileName.length > 50 ? item.fileName.substring(0, 50) + "..." : item.fileName}}
                 </span>

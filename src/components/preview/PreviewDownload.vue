@@ -7,7 +7,7 @@
       <div class="file-name">{{ fileInfo.fileName }}</div>
       <div class="tips">该类型的文件暂不支持预览，请下载后查看</div>
       <div class="download-btn">
-        <el-button type="primary" @click="download">点击下载 {{ proxy.Utils.size2Str(fileInfo.fileSize) }}</el-button>
+        <el-button type="primary" @click="download">点击下载 {{ Utils.size2Str(fileInfo.fileSize) }}</el-button>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
 
 <script setup>
 import Request from '../../utils/Request';
-
+import Utils from '../../utils/Utils'
 const props = defineProps({
   createDownloadUrl: {
     type: String,

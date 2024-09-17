@@ -102,7 +102,7 @@
       }
     }
     .window-content {
-      top: 0px;
+      top: 0;
       z-index: 201;
       position: absolute;
       background: #fff;
@@ -113,7 +113,7 @@
         font-weight: bold;
       }
       .content-body {
-        height: calc(100vh - 41px);
+        height: 100vh;
         display: flex;
         overflow: auto;
       }

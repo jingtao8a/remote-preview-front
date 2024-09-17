@@ -184,17 +184,17 @@ const handleCurrentChange = (pageNo) => {
     // background-color: blue;
     display: flex;
     flex-direction: row;
-    height: 80px;
+    height: 22vw;
     align-items: center;
     .cover {
         margin: auto 0;
     }
     .name {
-        height: 72px;
-        line-height: 20px;
+        height: 20vw;
+        line-height: 16px;
         letter-spacing: 1px;
-        padding-left: 10px;
-        width: 150px;
+        padding-left: 2vw;
+        width: 38vw;
         font-size: 12px;
         word-wrap: break-word;
     }

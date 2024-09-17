@@ -123,7 +123,14 @@ const handleCurrentChange = (pageNo) => {
 
 <style lang="scss" scoped>
 
-li {
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left: 0;
+    margin: 0;
+    li {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -136,13 +143,6 @@ li {
         word-wrap: break-word;
     }
 }
-ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-left: 0;
-    margin: 0;
 }
 
 </style>

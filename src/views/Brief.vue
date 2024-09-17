@@ -133,6 +133,7 @@ li {
         width: 35vw;
         height: 10vh;
         text-align: center;
+        word-wrap: break-word;
     }
 }
 ul {

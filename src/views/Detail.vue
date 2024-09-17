@@ -196,6 +196,7 @@ const handleCurrentChange = (pageNo) => {
         padding-left: 10px;
         width: 150px;
         font-size: 12px;
+        word-wrap: break-word;
     }
 }
 

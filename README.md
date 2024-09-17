@@ -1,5 +1,18 @@
-# Vue 3 + Vite
+### remote-preview
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+创建项目
+> npm init vite@latest remote-preview-front
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+开发工具
+> node 版本 v16.20.2<br>
+> npm 版本 8.19.4<br>
+> cnpm 版本 9.9.2
+
+使用技术
+> js, vue3, elementUI, vite, axios, scss, tdesign
+
+安装依赖modules
+> npm install @moefe/vue-aplayer aplayer axios docx-preview dplayer element-plus hls.js sass sass-loader vue-clipboard3 vue-pdf-embed vue-router vue3-pdfjs xlsx tdesign-mobile-vue --save
+
+后端仓库地址
+remote-preview: [https://github.com/jingtao8a/remote-preview](https://github.com/jingtao8a/remote-preview)

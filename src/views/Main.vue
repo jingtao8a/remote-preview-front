@@ -3,6 +3,11 @@
         <t-dropdown-menu>
             <t-dropdown-item :options="modelOption.options" :value="modelValue" @change="onChange" />
         </t-dropdown-menu>
+        <t-input class="custom-input" placeholder="请输入文件名查找" v-model:value="fileNameFuzzy" @keyup.enter="loadDataList">
+            <template #suffix>
+                <span class="iconfont icon-search" @click="loadDataList"></span>
+            </template>
+        </t-input>
         <Navigation ref="navigationRef" @navChange="onNavChange"></Navigation>
         <RouterView v-slot="{Component}">
             <component
@@ -73,6 +78,7 @@ const currentFolder = ref({fileId: 0})
 const fileNameFuzzy = ref()
 const navigationRef = ref()
 const loadDataList = async () => {
+    console.log("fileNameFuzzy", fileNameFuzzy)
     let params = {}
     if (data.value != null && typeof data.value.pageNo != undefined) {
         params.pageNo = data.value.pageNo
@@ -162,4 +168,10 @@ const handleCurrentChange = (pageNo) => {
 </script>
 
 <style scoped>
+.custom-input {
+  border: 1px solid rgba(220, 220, 220, 1);
+  border-radius: 6px;
+  width: 90vw;
+  height: 2vh;
+}
 </style>
